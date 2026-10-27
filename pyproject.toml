@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iostui"
+version = "1.0.0"
+description = "免越狱开关 iOS 监督模式与系统更新（OTA），带 TUI 界面"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "iostui contributors" }]
+keywords = ["ios", "supervision", "ota", "tui", "pymobiledevice3"]
+dependencies = [
+    "textual>=0.80",
+]
+
+[project.optional-dependencies]
+# 可选后端：提供 status 命令与「不重启设置监督」
+# 需要编译 C 扩展（pylzss），装不上不影响核心功能
+py = ["pymobiledevice3>=4.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+iostui = "iostui.cli:main"
+
+[tool.setuptools]
+packages = ["iostui", "iostui.resources"]
+
+[tool.setuptools.package-data]
+"iostui.resources" = ["*.plist"]

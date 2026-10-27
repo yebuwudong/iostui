@@ -1,0 +1,10 @@
+# 运行时依赖
+textual>=0.80              # TUI 界面（纯 Python，无编译）
+
+# 开发 / 测试
+pytest>=8.0
+
+# 可选：pymobiledevice3
+#   提供 status 命令与「不重启设置监督」，需要编译 C 扩展（pylzss）。
+#   装不上不影响核心功能（监督 / OTA / 锁定版本都可用 libimobiledevice 完成）。
+#   需要时手动装：pip install pymobiledevice3
